@@ -32,7 +32,7 @@ nav:
     - Products: "customer/products.md"
     - Equipment: "customer/equipment.md"
   - Developer:
-    - Introduction: "developer/description.md"
+    - Introduction: "developer/introduction.md"
     - Workbench: "developer/workbench_and_components.md"
     - QAD Workbench: "developer/qad-workbench.md"
     - Workbench Daemon: "developer/feecc-workbench-daemon.md"
