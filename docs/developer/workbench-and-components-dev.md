@@ -1,4 +1,4 @@
-# Page Dummy
+
 РМИ
 USB RFID reader - 124khz - 1.5 k rub
 USB Barcode reader - 2d, но можно и 1d, 2k rub

@@ -11,7 +11,7 @@
 - REST-запросы - [FastAPI](https://fastapi.tiangolo.com/)
 - ПО для развертывания - [Docker](https://www.docker.com/)
 
-Необходимое оборудование для рабочего места инженера (далее - РМИ) перечислено в [соответствующей статье](./workbench_and_components.md).
+Необходимое оборудование для рабочего места инженера (далее - РМИ) перечислено в [соответствующей статье](./workbench-and-components.md).
 Исходный код модуля доступен по [сслыке](https://github.com/Multi-Agent-io/feecc-workbench-daemon).
 
 ## Развертывание

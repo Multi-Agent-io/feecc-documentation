@@ -34,7 +34,7 @@ nav:
   - Developer:
     - Introduction: "developer/introduction.md"
     - Workbench:
-      - Workbench Components: "developer/workbench_and_components.md"
+      - Workbench Components: "developer/workbench-and-components.md"
       - Workbench Daemon: "developer/feecc-workbench-daemon.md"
       - HID Reader: "developer/feecc-hid-reader-daemon.md"
       - Workbench Frontend: "developer/feecc-workbench-frontend.md"
@@ -42,7 +42,7 @@ nav:
       - Cameraman: "developer/feecc-cameraman.md"
       - IPFS Gateway: "developer/feecc-ipfs-gateway.md"
       - Printer Server: "developer/feecc-printer-server.md"
-
-    - QAD Workbench: "developer/qad-workbench.md"
-    - Aanlytics Backend: "developer/feecc-analytics-backend.md"
-    - Aanlytics Frontend: "developer/feecc-analytics-frontend.md"
+    - Aanlytics:
+      - Aanlytics Workbench Components: "developer/analytics-workbench.md"
+      - Aanlytics Backend: "developer/feecc-analytics-backend.md"
+      - Aanlytics Frontend: "developer/feecc-analytics-frontend.md"
