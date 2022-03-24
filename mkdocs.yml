@@ -41,7 +41,7 @@ nav:
     - Gateway:
       - Cameraman: "developer/feecc-cameraman.md"
       - IPFS Gateway: "developer/feecc-ipfs-gateway.md"
-      - Printer Server: "developer/feecc-printer-server.md"
+      - Print Server: "developer/feecc-print-server.md"
     - Analytics:
       - Aanlytics Workbench Components: "developer/analytics-workbench.md"
       - Aanlytics Backend: "developer/feecc-analytics-backend.md"

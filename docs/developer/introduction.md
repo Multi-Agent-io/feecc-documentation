@@ -33,7 +33,7 @@
 - Раздел [`feecc-ipfs-gateway`](./feecc-ipfs-gateway.md) предназначен для выкладывания файлов в локальную IPFS сеть
 и/или на ноды сервера Pinata. Этот же раздел позволяет сохранять IPFS хеши паспортов в datalog сети Robonomics.
 
-- Раздел [`feecc-printer-server`](./feecc-printer-server.md) является инструментом взаимодействия с принтером этикеток,
+- Раздел [`feecc-print-server`](./feecc-print-server.md) является инструментом взаимодействия с принтером этикеток,
 в частности, для печати QR-кодов.
 
 ## Analytics

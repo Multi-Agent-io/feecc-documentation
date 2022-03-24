@@ -28,9 +28,9 @@ loop.run_forever()
 
 ## Стек технологий
 
-- Операционная система - [Ubuntu Desktop](https://ubuntu.com/)
+- Операционная система - [GNU/LINUX](https://www.gnu.org/), рекомендуется [Ubuntu](https://ubuntu.com/)
 - Язык программирования - [Python](https://www.python.org/)
-- Сервис - systemd/services
+- Сервис - [Systemd](https://manpages.ubuntu.com/manpages/xenial/en/man5/systemd.service.5.html)
 
 ## Особенности
 

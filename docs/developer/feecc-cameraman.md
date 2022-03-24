@@ -9,12 +9,13 @@
 
 ## Стек технологий
 
-- Операционная система - [Ubuntu](https://ubuntu.com/)
+- Операционная система - [GNU/LINUX](https://www.gnu.org/), рекомендуется [Ubuntu](https://ubuntu.com/)
 - Язык программирования - [Python](https://www.python.org/)
 - Утилита записи с камер - [FFMPEG](https://ffmpeg.org/)
 - ASGI-сервер - [Uvicorn](https://www.uvicorn.org/)
 - REST-запросы - [FastAPI](https://fastapi.tiangolo.com/)
 - ПО для развертывания - [Docker](https://www.docker.com/)
+- База данных - [MongoDB](https://www.mongodb.com/)
 
 ## Установка
 Приложение должно запускаться в контейнере Docker и может быть настроено путем установки нескольких переменных окружения.
@@ -34,9 +35,11 @@ vim docker-compose.yml
 
 - `MONGODB_URI` — URI вашего подключения к MongoDB, заканчивающийся на `/db-name`.
 
-- `PRODUCTION_ENVIRONMENT` - оставьте `null`, если вы хотите провести тестирование учетных данных для работы, иначе `True`.
+- `PRODUCTION_ENVIRONMENT` - Оставьте `null`, если вы хотите провести тестирование учетных данных для работы, иначе `True`.
 
-- `CAMERAS_CONFIG` — строка в формате JSON для конфигурации камеры. Представляет собой список строк в формате JSON, 
+- `FFMPEG_COMMAND` - Команда для записи потока с помощью камеры.
+
+- `CAMERAS_CONFIG` — Строка в формате JSON для конфигурации камеры. Представляет собой список строк в формате JSON, 
 каждая из которых описывает параметры RTSP (разделенные символом "-" номер потока, сокет и URI). Пример:
 ```
 '["1-192.168.88.239:554-rtsp://login:password@192.168.88.239:554/Streaming/Channels/101"]'

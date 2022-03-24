@@ -10,13 +10,15 @@
 
 ## Стек технологий
 
-- Операционная система - [Ubuntu](https://ubuntu.com/)
+- Операционная система - [GNU/LINUX](https://www.gnu.org/), рекомендуется [Ubuntu](https://ubuntu.com/)
 - Язык программирования - [Python](https://www.python.org/)
 - ASGI-сервер - [Uvicorn](https://www.uvicorn.org/)
 - REST-запросы - [FastAPI](https://fastapi.tiangolo.com/)
 - Python3 HTTP-client - [httpx](https://www.python-httpx.org/)
 - Сервис для публикации файлов на крупные ноды IPFS - [Pinata](https://www.pinata.cloud/)
 - ПО для развертывания - [Docker](https://www.docker.com/)
+- База данных - [MongoDB](https://www.mongodb.com/)
+
 
 ## Установка
 
@@ -37,7 +39,7 @@ vim docker-compose.yml
 
 - `MONGODB_URI` — URI вашего подключения к MongoDB, заканчивающийся на `/db-name`.
 
-- `PRODUCTION_ENVIRONMENT` - оставьте `null`, если вы хотите провести тестирование учетных данных для работы, иначе `True`.
+- `PRODUCTION_ENVIRONMENT` - Оставьте `null`, если вы хотите провести тестирование учетных данных для работы, иначе `True`.
 
 - `LOCAL_IPFS_ENABLED`- Публиковать или нет файлы в локальную сеть IPFS. По умолчанию - `false`.
 
@@ -50,6 +52,9 @@ vim docker-compose.yml
 - `ROBONOMICS_ENABLE_DATALOG`- Публиковать или нет IPFS CID в datalog Робономики. По умолчанию - `false`.
 
 - `ROBONOMICS_ACCOUNT_SEED`- Приватный ключ или сид-фраза кошелька на платформе Робономика. Оставьте пустым, если не публикуете данные в сеть.
+ 
+- `ROBONOMICS_SUBSTRATE_NODE_URL`- Адрес узла сети Робономика, если пользователь хочет использовать другую ноду.
+
 
 По окончании конфигурации, соберите и запустите контейнер с помощью docker-compose. 
 ```
