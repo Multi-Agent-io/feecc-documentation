@@ -43,6 +43,6 @@ nav:
       - IPFS Gateway: "developer/feecc-ipfs-gateway.md"
       - Print Server: "developer/feecc-print-server.md"
     - Analytics:
-      - Aanlytics Workbench Components: "developer/analytics-workbench.md"
-      - Aanlytics Backend: "developer/feecc-analytics-backend.md"
-      - Aanlytics Frontend: "developer/feecc-analytics-frontend.md"
+      - Analytics Workbench Components: "developer/analytics-workbench.md"
+      - Analytics Backend: "developer/feecc-analytics-backend.md"
+      - Analytics Frontend: "developer/feecc-analytics-frontend.md"

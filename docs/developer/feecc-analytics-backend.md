@@ -4,11 +4,9 @@
 > Аутентификация сотрудников отдела осуществляется с помощью логина и пароля по oauth2. Также данный сервис 
 > предоставляет доступ к возможности редактирования схем производства - ProductionSchemas. 
 
-[//]: # (TODO Коля, посмотри! Мб сравнить с Cameraman, там небольшое интро есть.)
-
 
 Необходимое оборудование для рабочего места специалиста ОТК перечислено в [соответствующей статье](./analytics-workbench.md).
-Исходный код модуля доступен по [сслыке](https://github.com/Multi-Agent-io/feecc-cameraman).
+Исходный код модуля доступен по [ссылке](https://github.com/Multi-Agent-io/feecc-analytics-backend).
 
 ## Стек технологий
 
@@ -18,7 +16,7 @@
 - REST-запросы - [FastAPI](https://fastapi.tiangolo.com/)
 - ПО для развертывания - [Docker](https://www.docker.com/)
 - База данных - [MongoDB](https://www.mongodb.com/)
-- Кеширование данных для ускорения - [Redis](https://redis.io/)
+- Кеширование данных - [Redis](https://redis.io/)
 
 ## Установка
 
@@ -28,30 +26,36 @@
 > на любой другой ОС, но имейте в виду: часовой пояс определяется из файлов хоста `/etc/timezone` и `/etc/localtime` внутри 
 > контейнера, которые не присутствуют на компьютерах с Windows, в таком случае внутри контейнера будет время UTC.
 
-Склонируйте репозиторий и измените переменные среды:
+Склонируйте репозиторий и измените переменные среды в файле .env:
 ```
 git clone https://github.com/Multi-Agent-io/feecc-analytics-backend
 cd feecc-analytics-backend
-vim docker-compose.yml
+vim .env
 ```
 
 ### Переменные среды
 
-- `MONGO_CONNECTION_URL` — URI вашего подключения к MongoDB, заканчивающийся на `/db-name`.
+- `MONGO_CONNECTION_URL` — URI вашего подключения к MongoDB, ссылка формата `mongodb+srv://<username\>:<password\>@<host\>/<database\>` `.
 
-- `SECRET_KEY` - 
+- `SECRET_KEY` - Секретный ключ для кодирования и декодирования данных.
 
-[//]: # (TODO Што это?)
+- `MONGO_DATABASE_NAME` - название базы данных MongoDB, которая будет использоваться при работе.
+
+- `REDIS_HOST` - Host для redis (Обычно используется `redis`).
+
+> Если переменные окружения будут не указаны или указаны неверно, приложение выдаст ошибку, обращайте внимание на логи.
 
 По окончании конфигурации, соберите и запустите контейнер с помощью docker-compose. 
 ```
 sudo docker-compose up --build
 ```
+> Для запуска в фоновом режиме, добавьте флаг `-d`
+
 Порт доступа по умолчанию - `5002`
 
-Проверьте развертывание, перейдя по адресу http://127.0.0.1:8081/docs в браузере. Вы должны увидеть страницу спецификации SwaggerUI API.
+Для изменения отредактируйте файлы Docker (`Dockerfile` и `docker-compose.yml`)
 
-[//]: # (TODO так ли это? )
+Проверьте работоспособность, перейдя по адресу http://127.0.0.1:5002/docs в браузере. Вы должны увидеть страницу спецификации SwaggerUI API со всеми Endpoints и их кратким описанием.
 
 ## Описание модуля
 
@@ -62,57 +66,67 @@ sudo docker-compose up --build
 
 #### Группа `Passports (Units) Management`:
 
-Группа отвечает за взаимодействие с паспортами изделий, выпуск, удаление, модификация.
+Группа отвечает за взаимодействие с паспортами изделий: выпуск, удаление, модификация.
 
-###### `get` /api/v1/passports/
-> Получение списка выпущенных паспортов с их содержимым. Так как количество паспортов велико, параметры запроса включают
-> количество возвращаемых паспортов (`start:limit`)
+###### `GET` /api/v1/passports/
+> Получение списка выпущенных паспортов с их содержимым. Доступна пагинация и фильтрация по разным параметрам
 
-###### `post` /api/v1/passports/    
+```
+page:  Номер страницы 
+items: Количество паспортов на странице
+sort_by_date: Сортировка по дате. Доступные параметры: asc, desc
+status: Статус изделия. Доступные параметры: production, built, revision, approved, finalized
+name: Название изделия, short_url или uuid
+date: Дата в формате datetime
+types: Типы изделий (через запятую, без пробелов)
+```
+
+###### `POST` /api/v1/passports/    
 > Создание нового паспорта.
 
-###### `get` /api/v1/passports/types
+###### `GET` /api/v1/passports/types
 > Получение списка всех возможных типов паспортов изделий.
 
-###### `get` /api/v1/tcd/passports/{internal_id}
-> Получение содержимого конкретного паспорта по его `id`.
+###### `GET` /api/v1/tcd/passports/{internal_id}
+> Получение содержимого конкретного паспорта по его `internal_id` (string).
 
-###### `delete` /api/v1/tcd/passports/{internal_id}
-> Удалить существующий паспорт изделия. 
+###### `DELETE` /api/v1/tcd/passports/{internal_id}
+> Удалить существующий паспорт изделия по его `internal_id` (string).
 
-###### `patch` /api/v1/tcd/passports/{internal_id}
-> Редактирование полей паспорта. Некоторые поля (`"uuid", "internal_id", "is_in_db", "featured_in_int_id"`) неизменяемы,
+###### `PATCH` /api/v1/tcd/passports/{internal_id}
+> Редактирование полей паспорта по его `internal_id` (string). Некоторые поля (`"uuid", "internal_id", "is_in_db", "featured_in_int_id"`) неизменяемы,
 > вместо данных в них необходимо вставлять `null`.
 
-###### `post` /api/v1/tcd/passports/{internal_id}/serial
-> Обновить серийный номер паспорта.
+###### `POST` /api/v1/tcd/passports/{internal_id}/serial
+> Обновить серийный номер паспорта по его `internal_id` (string). В теле указывается `serial_number` (string).
 
-###### `post` /api/v1/tcd/passports/{internal_id}/revision
-> Отправить паспорт изделия на ревизию.
+###### `POST` /api/v1/tcd/passports/{internal_id}/revision
+> Отправить паспорт изделия на доработку по его `internal_id` (string). В теле запроса отправляется List uuid этапов, которые нужно доработать.
 
-[//]: # (TODO)
+###### `POST` /api/v1/tcd/passports/{internal_id}/revision/cancel
+> Отменить доработку этапа изделия `internal_id` (string). В теле запроса отправляется List uuid этапов, которые нужно доработать.
 
 #### Группа `Quality Control Operations endpoints`:
 
 Группа отвечает за взаимодействие с протоколами испытаний изделий.
 
-###### `get` /api/v1/tcd/protocols
+###### `GET` /api/v1/tcd/protocols
 > Получение списка выпущенных протоколов с их содержимым.
 
-###### `get` /api/v1/tcd/protocols/types    
+###### `GET` /api/v1/tcd/protocols/types    
 > Получение списка всех возможных этапов протоколирования.
 
-###### `get` /api/v1/tcd/protocols/{internal_id}
+###### `GET` /api/v1/tcd/protocols/{internal_id}
 > Получение содержимого конкретного протокола по его `id`.
 
-###### `post` /api/v1/tcd/protocols/{internal_id}
+###### `POST` /api/v1/tcd/protocols/{internal_id}
 > Обновление содержимого протокола. Если Протокола нет, он будет создан, если протокол удтвержден, его нельзя изменить. 
 > Необходимо удалить текущий и создать новый.
 
-###### `delete` /api/v1/tcd/protocols/{internal_id}
+###### `DELETE` /api/v1/tcd/protocols/{internal_id}
 > Удалить существующий протокол проверки. 
 
-###### `post` /api/v1/tcd/protocols/{internal_id}/approve
+###### `POST` /api/v1/tcd/protocols/{internal_id}/approve
 > Утвердить протокол. Условие - прохождение изделием всех проверок.
 
 #### Группа `Employees Management`:
@@ -120,41 +134,41 @@ sudo docker-compose up --build
 Группа отвечает за взаимодействие с обектами инженеров в базе данных. Вся информация о сотрудниках в базе данных 
 захешироавана, для поиска используется кеширование.
 
-###### `get` /api/v1/employees/
+###### `GET` /api/v1/employees/
 > Получение списка всех сотрудников.
 
-###### `post` /api/v1/employees/
+###### `POST` /api/v1/employees/
 > Добавить нового сотрудника.
 
-###### `get` /api/v1/employees/{rfid_card_id}
+###### `GET` /api/v1/employees/{rfid_card_id}
 > Получение информации о сотруднике по ID его пропуска RFID.
 
-###### `delete` /api/v1/employees/{rfid_card_id}
+###### `DELETE` /api/v1/employees/{rfid_card_id}
 > Удалить сотрудника из базы данных. 
 
-###### `patch` /api/v1/tcd/passports/{rfid_card_id}
+###### `PATCH` /api/v1/tcd/passports/{rfid_card_id}
 > Редактирование полей данных о сотруднике в базе данных.
 
-###### `post` /api/v1/employees/decode
+###### `POST` /api/v1/employees/decode
 > Раскодирование данных о сотруднике из хеш-строки. Используется кеширование/перебор хеш-строк.
 
 #### Группа `Production Schemas Management`:
 
 Группа отвечает за взаимодействие со схемами производства изделий.
 
-###### `get` /api/v1/schemas/
+###### `GET` /api/v1/schemas/
 > Получение списка всех схем производства изделий. Задается количество схем на странице и количество страниц.
 
-###### `post` /api/v1/schemas/
+###### `POST` /api/v1/schemas/
 > Добавить новую производственную схему. Поле `schema_id` не заполнять, иначе схема перезапишется.
 
-###### `get` /api/v1/schemas/{schema_id}
+###### `GET` /api/v1/schemas/{schema_id}
 > Получение информации о схеме по ее ID.
 
-###### `delete` /api/v1/schemas/{schema_id}
+###### `DELETE` /api/v1/schemas/{schema_id}
 > Удалить схему из базы данных. 
 
-###### `patch` /api/v1/schemas/{schema_id}
+###### `PATCH` /api/v1/schemas/{schema_id}
 > Редактирование полей схемы. Некоторые изменения полей (`"schema_id", "parent_schema_id", 
 > "required_components_schema_ids"`) применяться не будут.
 
@@ -162,39 +176,39 @@ sudo docker-compose up --build
 
 Группа отвечает за взаимодействие с объектами сотрудников отдела аналитики.
 
-###### `get` /api/v1/users/me
+###### `GET` /api/v1/users/me
 > Получить информацию о текущем сотруднике отдела аналитики. Для идентификации используется токен.
 
-###### `post` /api/v1/users/
+###### `POST` /api/v1/users/
 > Создать нового сотрудника отдела аналитики.
 
-###### `get` /api/v1/users/{username}
+###### `GET` /api/v1/users/{username}
 > Получить информацию о конкретном сотруднике отдела аналитики по его `username`.
 
-###### `delete` /api/v1/users/{username}
+###### `DELETE` /api/v1/users/{username}
 > Удалить сотрудника отдела аналитики из базы данных по его `username`.
 
-###### `patch` /api/v1/users/{username}
+###### `PATCH` /api/v1/users/{username}
 > Редактирование полей объекта сотрудника отдела аналитики.
 
 #### Группа `Service Endpoints`:
 
 Служебные эндпоинты.
 
-###### `get` /api/v1/status
+###### `GET` /api/v1/status
 > Получить информацию о текущем статусе сервера.
 
-###### `post` /token
+###### `POST` /token
 > Эндпоинт для авторизации. Возвращает токен пользователя.
 
 #### Группа `External Operations`:
 
 Служебные эндпоинты.
 
-###### `get` /api/v1/status
+###### `GET` /api/v1/status
 > Получить информацию о текущем статусе сервера.
 
-###### `post` /token
+###### `POST` /token
 > Эндпоинт для авторизации. Возвращает токен пользователя.
 
 ### Схемы структур данных 
@@ -202,8 +216,6 @@ sudo docker-compose up --build
 Схемы структур данных представлены в нижней части [страницы](http://analytics.netmvas.com:5002/docs#/) API.
 
 ### Подмодули
-
-[//]: # (TODO: Проверить)
 
 Подмодуль `dependencies` содержит различные функции для работы пользователя с аналитикой:
 
@@ -218,4 +230,4 @@ sudo docker-compose up --build
   - `models.py` определяет схемы структур данных.
   - `singleton.py` отвечает за то, что в любой момент времени только один инстанс конкретного класса доступен публично.
   - `types.py` определяет комплексные типизации.
-  - `utils.py` отвечает за обработку файлов `.yml`.
+  - `utils.py` содержит различные утилиты, используемые в коде.
