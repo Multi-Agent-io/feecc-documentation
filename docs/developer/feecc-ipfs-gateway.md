@@ -69,10 +69,10 @@ sudo docker-compose up --build
 
 Работа модуля заключается в обрабортке запросов к соответствующим эндпоинтам:
 
-###### `post` /publish-to-ipfs/by-path  
+###### `POST` /publish-to-ipfs/by-path  
 > Опубликовать файл в локальную сеть IPFS и/или в сервис Pinata. Аргументом является абсолютный путь до файла.
 
-###### `post` /publish-to-ipfs/upload-file
+###### `POST` /publish-to-ipfs/upload-file
 > Опубликовать файл в локальную сеть IPFS и/или в сервис Pinata. Аргументом является `fastapi.UploadFile`.
 
 ### Подмодули
