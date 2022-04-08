@@ -20,6 +20,7 @@
 Клонируйте репозиторий с GitHub с помощью команды `git clone`. Перейдите в папку репозитория и поменяйте файл
 конфигурации `src/config/config.yaml` в соответствии со своими нуждами.
 
+Установите [Docker](https://docs.docker.com/engine/install/) и [docker-compose](https://docs.docker.com/compose/install/).
 Разверните Feecc Workbench Daemon при помощи Docker-compose: находясь в корне репозитория введите команду
 `sudo docker-compose up -d --build`.
 

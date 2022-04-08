@@ -26,6 +26,7 @@
 > на любой другой ОС, но имейте в виду: часовой пояс определяется из файлов хоста `/etc/timezone` и `/etc/localtime` внутри 
 > контейнера, которые не присутствуют на компьютерах с Windows, в таком случае внутри контейнера будет время UTC.
 
+Установите [Docker](https://docs.docker.com/engine/install/) и [docker-compose](https://docs.docker.com/compose/install/).
 Склонируйте репозиторий и измените переменные среды в файле .env:
 ```
 git clone https://github.com/Multi-Agent-io/feecc-analytics-backend
