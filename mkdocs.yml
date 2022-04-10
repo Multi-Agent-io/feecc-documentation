@@ -1,6 +1,6 @@
 site_name: FEECC - quality control system
-repo_name: 'Multi-Agent-io/feecc-workbench-daemon'
-repo_url: 'https://github.com/Multi-Agent-io/feecc-workbench-daemon'
+repo_name: 'Multi-Agent-io'
+repo_url: 'https://github.com/Multi-Agent-io/multi-agent.io'
 theme:
   name: material
   palette:
