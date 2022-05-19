@@ -1,0 +1,1826 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
+    
+    
+      
+        <title>Analytics Backend - FEECC - quality control system</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c382b1dc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#analytics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="FEECC - quality control system" class="md-header__button md-logo" aria-label="FEECC - quality control system" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            FEECC - quality control system
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Analytics Backend
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Multi-Agent-io/multi-agent.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Multi-Agent-io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="FEECC - quality control system" class="md-nav__button md-logo" aria-label="FEECC - quality control system" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    FEECC - quality control system
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Multi-Agent-io/multi-agent.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Multi-Agent-io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Customer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Customer" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Customer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customer/description/" class="md-nav__link">
+        Descriprion
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customer/cases/" class="md-nav__link">
+        Cases
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customer/products/" class="md-nav__link">
+        Products
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../customer/equipment/" class="md-nav__link">
+        Equipment
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developer" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Developer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Workbench
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Workbench" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Workbench
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workbench-and-components/" class="md-nav__link">
+        Workbench Components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feecc-workbench-daemon/" class="md-nav__link">
+        Workbench Daemon
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feecc-hid-reader-daemon/" class="md-nav__link">
+        HID Reader
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feecc-workbench-frontend/" class="md-nav__link">
+        Workbench Frontend
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Gateway
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Gateway" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Gateway
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feecc-cameraman/" class="md-nav__link">
+        Cameraman
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feecc-ipfs-gateway/" class="md-nav__link">
+        IPFS Gateway
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feecc-print-server/" class="md-nav__link">
+        Print Server
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Analytics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Analytics" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Analytics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analytics-workbench/" class="md-nav__link">
+        Analytics Workbench Components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Analytics Backend
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Analytics Backend
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Стек технологий
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Установка
+  </a>
+  
+    <nav class="md-nav" aria-label="Установка">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Переменные среды
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Описание модуля
+  </a>
+  
+    <nav class="md-nav" aria-label="Описание модуля">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Эндпоинты
+  </a>
+  
+    <nav class="md-nav" aria-label="Эндпоинты">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passports-units-management" class="md-nav__link">
+    Группа Passports (Units) Management:
+  </a>
+  
+    <nav class="md-nav" aria-label="Группа Passports (Units) Management:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1passports" class="md-nav__link">
+    GET /api/v1/passports/
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiv1passports" class="md-nav__link">
+    POST /api/v1/passports/
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1passportstypes" class="md-nav__link">
+    GET /api/v1/passports/types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1tcdpassportsinternal_id" class="md-nav__link">
+    GET /api/v1/tcd/passports/{internal_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-apiv1tcdpassportsinternal_id" class="md-nav__link">
+    DELETE /api/v1/tcd/passports/{internal_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch-apiv1tcdpassportsinternal_id" class="md-nav__link">
+    PATCH /api/v1/tcd/passports/{internal_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiv1tcdpassportsinternal_idserial" class="md-nav__link">
+    POST /api/v1/tcd/passports/{internal_id}/serial
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiv1tcdpassportsinternal_idrevision" class="md-nav__link">
+    POST /api/v1/tcd/passports/{internal_id}/revision
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiv1tcdpassportsinternal_idrevisioncancel" class="md-nav__link">
+    POST /api/v1/tcd/passports/{internal_id}/revision/cancel
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-control-operations-endpoints" class="md-nav__link">
+    Группа Quality Control Operations endpoints:
+  </a>
+  
+    <nav class="md-nav" aria-label="Группа Quality Control Operations endpoints:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1tcdprotocols" class="md-nav__link">
+    GET /api/v1/tcd/protocols
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1tcdprotocolstypes" class="md-nav__link">
+    GET /api/v1/tcd/protocols/types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1tcdprotocolsinternal_id" class="md-nav__link">
+    GET /api/v1/tcd/protocols/{internal_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiv1tcdprotocolsinternal_id" class="md-nav__link">
+    POST /api/v1/tcd/protocols/{internal_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-apiv1tcdprotocolsinternal_id" class="md-nav__link">
+    DELETE /api/v1/tcd/protocols/{internal_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiv1tcdprotocolsinternal_idapprove" class="md-nav__link">
+    POST /api/v1/tcd/protocols/{internal_id}/approve
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#employees-management" class="md-nav__link">
+    Группа Employees Management:
+  </a>
+  
+    <nav class="md-nav" aria-label="Группа Employees Management:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1employees" class="md-nav__link">
+    GET /api/v1/employees/
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiv1employees" class="md-nav__link">
+    POST /api/v1/employees/
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1employeesrfid_card_id" class="md-nav__link">
+    GET /api/v1/employees/{rfid_card_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-apiv1employeesrfid_card_id" class="md-nav__link">
+    DELETE /api/v1/employees/{rfid_card_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch-apiv1tcdpassportsrfid_card_id" class="md-nav__link">
+    PATCH /api/v1/tcd/passports/{rfid_card_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiv1employeesdecode" class="md-nav__link">
+    POST /api/v1/employees/decode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#production-schemas-management" class="md-nav__link">
+    Группа Production Schemas Management:
+  </a>
+  
+    <nav class="md-nav" aria-label="Группа Production Schemas Management:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1schemas" class="md-nav__link">
+    GET /api/v1/schemas/
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiv1schemas" class="md-nav__link">
+    POST /api/v1/schemas/
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1schemasschema_id" class="md-nav__link">
+    GET /api/v1/schemas/{schema_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-apiv1schemasschema_id" class="md-nav__link">
+    DELETE /api/v1/schemas/{schema_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch-apiv1schemasschema_id" class="md-nav__link">
+    PATCH /api/v1/schemas/{schema_id}
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics-users-management" class="md-nav__link">
+    Группа Analytics Users Management:
+  </a>
+  
+    <nav class="md-nav" aria-label="Группа Analytics Users Management:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1usersme" class="md-nav__link">
+    GET /api/v1/users/me
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiv1users" class="md-nav__link">
+    POST /api/v1/users/
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1usersusername" class="md-nav__link">
+    GET /api/v1/users/{username}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-apiv1usersusername" class="md-nav__link">
+    DELETE /api/v1/users/{username}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch-apiv1usersusername" class="md-nav__link">
+    PATCH /api/v1/users/{username}
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-endpoints" class="md-nav__link">
+    Группа Service Endpoints:
+  </a>
+  
+    <nav class="md-nav" aria-label="Группа Service Endpoints:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1status" class="md-nav__link">
+    GET /api/v1/status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-token" class="md-nav__link">
+    POST /token
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#external-operations" class="md-nav__link">
+    Группа External Operations:
+  </a>
+  
+    <nav class="md-nav" aria-label="Группа External Operations:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1status_1" class="md-nav__link">
+    GET /api/v1/status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-token_1" class="md-nav__link">
+    POST /token
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    Схемы структур данных
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    Подмодули
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feecc-analytics-frontend/" class="md-nav__link">
+        Analytics Frontend
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Стек технологий
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Установка
+  </a>
+  
+    <nav class="md-nav" aria-label="Установка">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Переменные среды
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Описание модуля
+  </a>
+  
+    <nav class="md-nav" aria-label="Описание модуля">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Эндпоинты
+  </a>
+  
+    <nav class="md-nav" aria-label="Эндпоинты">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passports-units-management" class="md-nav__link">
+    Группа Passports (Units) Management:
+  </a>
+  
+    <nav class="md-nav" aria-label="Группа Passports (Units) Management:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1passports" class="md-nav__link">
+    GET /api/v1/passports/
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiv1passports" class="md-nav__link">
+    POST /api/v1/passports/
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1passportstypes" class="md-nav__link">
+    GET /api/v1/passports/types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1tcdpassportsinternal_id" class="md-nav__link">
+    GET /api/v1/tcd/passports/{internal_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-apiv1tcdpassportsinternal_id" class="md-nav__link">
+    DELETE /api/v1/tcd/passports/{internal_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch-apiv1tcdpassportsinternal_id" class="md-nav__link">
+    PATCH /api/v1/tcd/passports/{internal_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiv1tcdpassportsinternal_idserial" class="md-nav__link">
+    POST /api/v1/tcd/passports/{internal_id}/serial
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiv1tcdpassportsinternal_idrevision" class="md-nav__link">
+    POST /api/v1/tcd/passports/{internal_id}/revision
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiv1tcdpassportsinternal_idrevisioncancel" class="md-nav__link">
+    POST /api/v1/tcd/passports/{internal_id}/revision/cancel
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-control-operations-endpoints" class="md-nav__link">
+    Группа Quality Control Operations endpoints:
+  </a>
+  
+    <nav class="md-nav" aria-label="Группа Quality Control Operations endpoints:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1tcdprotocols" class="md-nav__link">
+    GET /api/v1/tcd/protocols
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1tcdprotocolstypes" class="md-nav__link">
+    GET /api/v1/tcd/protocols/types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1tcdprotocolsinternal_id" class="md-nav__link">
+    GET /api/v1/tcd/protocols/{internal_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiv1tcdprotocolsinternal_id" class="md-nav__link">
+    POST /api/v1/tcd/protocols/{internal_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-apiv1tcdprotocolsinternal_id" class="md-nav__link">
+    DELETE /api/v1/tcd/protocols/{internal_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiv1tcdprotocolsinternal_idapprove" class="md-nav__link">
+    POST /api/v1/tcd/protocols/{internal_id}/approve
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#employees-management" class="md-nav__link">
+    Группа Employees Management:
+  </a>
+  
+    <nav class="md-nav" aria-label="Группа Employees Management:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1employees" class="md-nav__link">
+    GET /api/v1/employees/
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiv1employees" class="md-nav__link">
+    POST /api/v1/employees/
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1employeesrfid_card_id" class="md-nav__link">
+    GET /api/v1/employees/{rfid_card_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-apiv1employeesrfid_card_id" class="md-nav__link">
+    DELETE /api/v1/employees/{rfid_card_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch-apiv1tcdpassportsrfid_card_id" class="md-nav__link">
+    PATCH /api/v1/tcd/passports/{rfid_card_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiv1employeesdecode" class="md-nav__link">
+    POST /api/v1/employees/decode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#production-schemas-management" class="md-nav__link">
+    Группа Production Schemas Management:
+  </a>
+  
+    <nav class="md-nav" aria-label="Группа Production Schemas Management:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1schemas" class="md-nav__link">
+    GET /api/v1/schemas/
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiv1schemas" class="md-nav__link">
+    POST /api/v1/schemas/
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1schemasschema_id" class="md-nav__link">
+    GET /api/v1/schemas/{schema_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-apiv1schemasschema_id" class="md-nav__link">
+    DELETE /api/v1/schemas/{schema_id}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch-apiv1schemasschema_id" class="md-nav__link">
+    PATCH /api/v1/schemas/{schema_id}
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics-users-management" class="md-nav__link">
+    Группа Analytics Users Management:
+  </a>
+  
+    <nav class="md-nav" aria-label="Группа Analytics Users Management:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1usersme" class="md-nav__link">
+    GET /api/v1/users/me
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-apiv1users" class="md-nav__link">
+    POST /api/v1/users/
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1usersusername" class="md-nav__link">
+    GET /api/v1/users/{username}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-apiv1usersusername" class="md-nav__link">
+    DELETE /api/v1/users/{username}
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch-apiv1usersusername" class="md-nav__link">
+    PATCH /api/v1/users/{username}
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-endpoints" class="md-nav__link">
+    Группа Service Endpoints:
+  </a>
+  
+    <nav class="md-nav" aria-label="Группа Service Endpoints:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1status" class="md-nav__link">
+    GET /api/v1/status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-token" class="md-nav__link">
+    POST /token
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#external-operations" class="md-nav__link">
+    Группа External Operations:
+  </a>
+  
+    <nav class="md-nav" aria-label="Группа External Operations:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-apiv1status_1" class="md-nav__link">
+    GET /api/v1/status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-token_1" class="md-nav__link">
+    POST /token
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    Схемы структур данных
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    Подмодули
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/Multi-Agent-io/multi-agent.io/edit/master/docs/developer/feecc-analytics-backend.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="analytics">Analytics</h1>
+<blockquote>
+<p>Модуль аналитики отвечает за предоставление сотрудникам ОТК сервисов проверки выполнения производственных этапов.
+Аутентификация сотрудников отдела осуществляется с помощью логина и пароля по oauth2. Также данный сервис 
+предоставляет доступ к возможности редактирования схем производства - ProductionSchemas. </p>
+</blockquote>
+<p>Необходимое оборудование для рабочего места специалиста ОТК перечислено в <a href="../analytics-workbench/">соответствующей статье</a>.
+Исходный код модуля доступен по <a href="https://github.com/Multi-Agent-io/feecc-analytics-backend">ссылке</a>.</p>
+<h2 id="_1">Стек технологий</h2>
+<ul>
+<li>Операционная система - <a href="https://www.gnu.org/">GNU/LINUX</a>, рекомендуется <a href="https://ubuntu.com/">Ubuntu</a></li>
+<li>Язык программирования - <a href="https://www.python.org/">Python</a></li>
+<li>ASGI-сервер - <a href="https://www.uvicorn.org/">Uvicorn</a></li>
+<li>REST-запросы - <a href="https://fastapi.tiangolo.com/">FastAPI</a></li>
+<li>ПО для развертывания - <a href="https://www.docker.com/">Docker</a></li>
+<li>База данных - <a href="https://www.mongodb.com/">MongoDB</a></li>
+<li>Кеширование данных - <a href="https://redis.io/">Redis</a></li>
+</ul>
+<h2 id="_2">Установка</h2>
+<p>Приложение должно запускаться в контейнере Docker и может быть настроено путем установки нескольких переменных окружения.</p>
+<blockquote>
+<p>Обратите внимание, что в этом руководстве предполагается хост Linux(Ubuntu), однако вы также можете запустить аналитику
+на любой другой ОС, но имейте в виду: часовой пояс определяется из файлов хоста <code>/etc/timezone</code> и <code>/etc/localtime</code> внутри 
+контейнера, которые не присутствуют на компьютерах с Windows, в таком случае внутри контейнера будет время UTC.</p>
+</blockquote>
+<p>Установите <a href="https://docs.docker.com/engine/install/">Docker</a> и <a href="https://docs.docker.com/compose/install/">docker-compose</a>.
+Склонируйте репозиторий и измените переменные среды в файле .env:</p>
+<pre><code>git clone https://github.com/Multi-Agent-io/feecc-analytics-backend
+cd feecc-analytics-backend
+vim .env
+</code></pre>
+<h3 id="_3">Переменные среды</h3>
+<ul>
+<li>
+<p><code>MONGO_CONNECTION_URL</code> — URI вашего подключения к MongoDB, ссылка формата <code>mongodb+srv://&lt;username\&gt;:&lt;password\&gt;@&lt;host\&gt;/&lt;database\&gt;</code> `.</p>
+</li>
+<li>
+<p><code>SECRET_KEY</code> - Секретный ключ для кодирования и декодирования данных.</p>
+</li>
+<li>
+<p><code>MONGO_DATABASE_NAME</code> - название базы данных MongoDB, которая будет использоваться при работе.</p>
+</li>
+<li>
+<p><code>REDIS_HOST</code> - Host для redis (Обычно используется <code>redis</code>).</p>
+</li>
+</ul>
+<blockquote>
+<p>Если переменные окружения будут не указаны или указаны неверно, приложение выдаст ошибку, обращайте внимание на логи.</p>
+</blockquote>
+<p>По окончании конфигурации, соберите и запустите контейнер с помощью docker-compose. </p>
+<pre><code>sudo docker-compose up --build
+</code></pre>
+<blockquote>
+<p>Для запуска в фоновом режиме, добавьте флаг <code>-d</code></p>
+</blockquote>
+<p>Порт доступа по умолчанию - <code>5002</code></p>
+<p>Для изменения отредактируйте файлы Docker (<code>Dockerfile</code> и <code>docker-compose.yml</code>)</p>
+<p>Проверьте работоспособность, перейдя по адресу http://127.0.0.1:5002/docs в браузере. Вы должны увидеть страницу спецификации SwaggerUI API со всеми Endpoints и их кратким описанием.</p>
+<h2 id="_4">Описание модуля</h2>
+<h3 id="_5">Эндпоинты</h3>
+<p><em>Более подробная информация об эндпоинтах, включая все передаваемые параметры, размещена 
+<a href="http://analytics.netmvas.com:5002/docs">здесь</a>.</em></p>
+<h4 id="passports-units-management">Группа <code>Passports (Units) Management</code>:</h4>
+<p>Группа отвечает за взаимодействие с сертификатами изделий: выпуск, удаление, модификация.</p>
+<h6 id="get-apiv1passports"><code>GET</code> /api/v1/passports/</h6>
+<blockquote>
+<p>Получение списка выпущенных сертификатов с их содержимым. Доступна пагинация и фильтрация по разным параметрам</p>
+</blockquote>
+<pre><code>page:  Номер страницы 
+items: Количество сертификатов на странице
+sort_by_date: Сортировка по дате. Доступные параметры: asc, desc
+status: Статус изделия. Доступные параметры: production, built, revision, approved, finalized
+name: Название изделия, short_url или uuid
+date: Дата в формате datetime
+types: Типы изделий (через запятую, без пробелов)
+</code></pre>
+<h6 id="post-apiv1passports"><code>POST</code> /api/v1/passports/</h6>
+<blockquote>
+<p>Создание нового сертификата.</p>
+</blockquote>
+<h6 id="get-apiv1passportstypes"><code>GET</code> /api/v1/passports/types</h6>
+<blockquote>
+<p>Получение списка всех возможных типов сертификатов изделий.</p>
+</blockquote>
+<h6 id="get-apiv1tcdpassportsinternal_id"><code>GET</code> /api/v1/tcd/passports/{internal_id}</h6>
+<blockquote>
+<p>Получение содержимого конкретного сертификата по его <code>internal_id</code> (string).</p>
+</blockquote>
+<h6 id="delete-apiv1tcdpassportsinternal_id"><code>DELETE</code> /api/v1/tcd/passports/{internal_id}</h6>
+<blockquote>
+<p>Удалить существующий сертификат изделия по его <code>internal_id</code> (string).</p>
+</blockquote>
+<h6 id="patch-apiv1tcdpassportsinternal_id"><code>PATCH</code> /api/v1/tcd/passports/{internal_id}</h6>
+<blockquote>
+<p>Редактирование полей сертификата по его <code>internal_id</code> (string). Некоторые поля (<code>"uuid", "internal_id", "is_in_db", "featured_in_int_id"</code>) неизменяемы,
+вместо данных в них необходимо вставлять <code>null</code>.</p>
+</blockquote>
+<h6 id="post-apiv1tcdpassportsinternal_idserial"><code>POST</code> /api/v1/tcd/passports/{internal_id}/serial</h6>
+<blockquote>
+<p>Обновить серийный номер сертификата по его <code>internal_id</code> (string). В теле указывается <code>serial_number</code> (string).</p>
+</blockquote>
+<h6 id="post-apiv1tcdpassportsinternal_idrevision"><code>POST</code> /api/v1/tcd/passports/{internal_id}/revision</h6>
+<blockquote>
+<p>Отправить сертификат изделия на доработку по его <code>internal_id</code> (string). В теле запроса отправляется List uuid этапов, которые нужно доработать.</p>
+</blockquote>
+<h6 id="post-apiv1tcdpassportsinternal_idrevisioncancel"><code>POST</code> /api/v1/tcd/passports/{internal_id}/revision/cancel</h6>
+<blockquote>
+<p>Отменить доработку этапа изделия <code>internal_id</code> (string). В теле запроса отправляется List uuid этапов, которые нужно доработать.</p>
+</blockquote>
+<h4 id="quality-control-operations-endpoints">Группа <code>Quality Control Operations endpoints</code>:</h4>
+<p>Группа отвечает за взаимодействие с протоколами испытаний изделий.</p>
+<h6 id="get-apiv1tcdprotocols"><code>GET</code> /api/v1/tcd/protocols</h6>
+<blockquote>
+<p>Получение списка выпущенных протоколов с их содержимым.</p>
+</blockquote>
+<h6 id="get-apiv1tcdprotocolstypes"><code>GET</code> /api/v1/tcd/protocols/types</h6>
+<blockquote>
+<p>Получение списка всех возможных этапов протоколирования.</p>
+</blockquote>
+<h6 id="get-apiv1tcdprotocolsinternal_id"><code>GET</code> /api/v1/tcd/protocols/{internal_id}</h6>
+<blockquote>
+<p>Получение содержимого конкретного протокола по его <code>id</code>.</p>
+</blockquote>
+<h6 id="post-apiv1tcdprotocolsinternal_id"><code>POST</code> /api/v1/tcd/protocols/{internal_id}</h6>
+<blockquote>
+<p>Обновление содержимого протокола. Если Протокола нет, он будет создан, если протокол удтвержден, его нельзя изменить. 
+Необходимо удалить текущий и создать новый.</p>
+</blockquote>
+<h6 id="delete-apiv1tcdprotocolsinternal_id"><code>DELETE</code> /api/v1/tcd/protocols/{internal_id}</h6>
+<blockquote>
+<p>Удалить существующий протокол проверки. </p>
+</blockquote>
+<h6 id="post-apiv1tcdprotocolsinternal_idapprove"><code>POST</code> /api/v1/tcd/protocols/{internal_id}/approve</h6>
+<blockquote>
+<p>Утвердить протокол. Условие - прохождение изделием всех проверок.</p>
+</blockquote>
+<h4 id="employees-management">Группа <code>Employees Management</code>:</h4>
+<p>Группа отвечает за взаимодействие с обектами инженеров в базе данных. Вся информация о сотрудниках в базе данных 
+захешироавана, для поиска используется кеширование.</p>
+<h6 id="get-apiv1employees"><code>GET</code> /api/v1/employees/</h6>
+<blockquote>
+<p>Получение списка всех сотрудников.</p>
+</blockquote>
+<h6 id="post-apiv1employees"><code>POST</code> /api/v1/employees/</h6>
+<blockquote>
+<p>Добавить нового сотрудника.</p>
+</blockquote>
+<h6 id="get-apiv1employeesrfid_card_id"><code>GET</code> /api/v1/employees/{rfid_card_id}</h6>
+<blockquote>
+<p>Получение информации о сотруднике по ID его пропуска RFID.</p>
+</blockquote>
+<h6 id="delete-apiv1employeesrfid_card_id"><code>DELETE</code> /api/v1/employees/{rfid_card_id}</h6>
+<blockquote>
+<p>Удалить сотрудника из базы данных. </p>
+</blockquote>
+<h6 id="patch-apiv1tcdpassportsrfid_card_id"><code>PATCH</code> /api/v1/tcd/passports/{rfid_card_id}</h6>
+<blockquote>
+<p>Редактирование полей данных о сотруднике в базе данных.</p>
+</blockquote>
+<h6 id="post-apiv1employeesdecode"><code>POST</code> /api/v1/employees/decode</h6>
+<blockquote>
+<p>Раскодирование данных о сотруднике из хеш-строки. Используется кеширование/перебор хеш-строк.</p>
+</blockquote>
+<h4 id="production-schemas-management">Группа <code>Production Schemas Management</code>:</h4>
+<p>Группа отвечает за взаимодействие со схемами производства изделий.</p>
+<h6 id="get-apiv1schemas"><code>GET</code> /api/v1/schemas/</h6>
+<blockquote>
+<p>Получение списка всех схем производства изделий. Задается количество схем на странице и количество страниц.</p>
+</blockquote>
+<h6 id="post-apiv1schemas"><code>POST</code> /api/v1/schemas/</h6>
+<blockquote>
+<p>Добавить новую производственную схему. Поле <code>schema_id</code> не заполнять, иначе схема перезапишется.</p>
+</blockquote>
+<h6 id="get-apiv1schemasschema_id"><code>GET</code> /api/v1/schemas/{schema_id}</h6>
+<blockquote>
+<p>Получение информации о схеме по ее ID.</p>
+</blockquote>
+<h6 id="delete-apiv1schemasschema_id"><code>DELETE</code> /api/v1/schemas/{schema_id}</h6>
+<blockquote>
+<p>Удалить схему из базы данных. </p>
+</blockquote>
+<h6 id="patch-apiv1schemasschema_id"><code>PATCH</code> /api/v1/schemas/{schema_id}</h6>
+<blockquote>
+<p>Редактирование полей схемы. Некоторые изменения полей (<code>"schema_id", "parent_schema_id", 
+"required_components_schema_ids"</code>) применяться не будут.</p>
+</blockquote>
+<h4 id="analytics-users-management">Группа <code>Analytics Users Management</code>:</h4>
+<p>Группа отвечает за взаимодействие с объектами сотрудников отдела аналитики.</p>
+<h6 id="get-apiv1usersme"><code>GET</code> /api/v1/users/me</h6>
+<blockquote>
+<p>Получить информацию о текущем сотруднике отдела аналитики. Для идентификации используется токен.</p>
+</blockquote>
+<h6 id="post-apiv1users"><code>POST</code> /api/v1/users/</h6>
+<blockquote>
+<p>Создать нового сотрудника отдела аналитики.</p>
+</blockquote>
+<h6 id="get-apiv1usersusername"><code>GET</code> /api/v1/users/{username}</h6>
+<blockquote>
+<p>Получить информацию о конкретном сотруднике отдела аналитики по его <code>username</code>.</p>
+</blockquote>
+<h6 id="delete-apiv1usersusername"><code>DELETE</code> /api/v1/users/{username}</h6>
+<blockquote>
+<p>Удалить сотрудника отдела аналитики из базы данных по его <code>username</code>.</p>
+</blockquote>
+<h6 id="patch-apiv1usersusername"><code>PATCH</code> /api/v1/users/{username}</h6>
+<blockquote>
+<p>Редактирование полей объекта сотрудника отдела аналитики.</p>
+</blockquote>
+<h4 id="service-endpoints">Группа <code>Service Endpoints</code>:</h4>
+<p>Служебные эндпоинты.</p>
+<h6 id="get-apiv1status"><code>GET</code> /api/v1/status</h6>
+<blockquote>
+<p>Получить информацию о текущем статусе сервера.</p>
+</blockquote>
+<h6 id="post-token"><code>POST</code> /token</h6>
+<blockquote>
+<p>Эндпоинт для авторизации. Возвращает токен пользователя.</p>
+</blockquote>
+<h4 id="external-operations">Группа <code>External Operations</code>:</h4>
+<p>Служебные эндпоинты.</p>
+<h6 id="get-apiv1status_1"><code>GET</code> /api/v1/status</h6>
+<blockquote>
+<p>Получить информацию о текущем статусе сервера.</p>
+</blockquote>
+<h6 id="post-token_1"><code>POST</code> /token</h6>
+<blockquote>
+<p>Эндпоинт для авторизации. Возвращает токен пользователя.</p>
+</blockquote>
+<h3 id="_6">Схемы структур данных</h3>
+<p>Схемы структур данных представлены в нижней части <a href="http://analytics.netmvas.com:5002/docs#/">страницы</a> API.</p>
+<h3 id="_7">Подмодули</h3>
+<p>Подмодуль <code>dependencies</code> содержит различные функции для работы пользователя с аналитикой:</p>
+<ul>
+<li><code>filters.py</code> отвечает за обработку фильтров для взаимодействия со списками объектов при обращении к эндпоинту.</li>
+<li><code>handlers.py</code> отвечает за обработку запроса на обновление протокола сборки.</li>
+<li><code>security.py</code> отвечает за логин пользователей в систему.</li>
+</ul>
+<p>Остальные подмодули:</p>
+<ul>
+<li><code>database.py</code> содержит конкретные функции для взаимодействия с базой данных.</li>
+<li><code>exceptions.py</code> - определение исключений.</li>
+<li><code>models.py</code> определяет схемы структур данных.</li>
+<li><code>singleton.py</code> отвечает за то, что в любой момент времени только один инстанс конкретного класса доступен публично.</li>
+<li><code>types.py</code> определяет комплексные типизации.</li>
+<li><code>utils.py</code> содержит различные утилиты, используемые в коде.</li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../analytics-workbench/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Analytics Workbench Components" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Analytics Workbench Components
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../feecc-analytics-frontend/" class="md-footer__link md-footer__link--next" aria-label="Next: Analytics Frontend" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Analytics Frontend
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "toc.follow", "navigation.top"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a6c66575.min.js"></script>
+      
+    
+  </body>
+</html>
